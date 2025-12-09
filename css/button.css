@@ -1,7 +1,3 @@
-.btn-slanted{
-  --rotate: 1deg;
-  --move: 500%;
-}
 
 .btn-slanted-label{
   transform-origin: 50% 1000%;
