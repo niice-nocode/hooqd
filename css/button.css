@@ -1,0 +1,55 @@
+.btn-slanted{
+  --rotate: 20deg;
+  --move: 150%;
+}
+
+.btn-slanted-label{
+  transform-origin: 50% 1000%;
+  transition: transform 0.45s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.btn-slanted-bg{
+  transition: transform 0.45s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.btn-slanted-label:not(:nth-of-type(1)){
+  position: absolute;
+}
+
+.btn-slanted-label:nth-of-type(1){ 
+  transform: translate(calc(var(--move) * 0), calc(var(--move) * 0)) rotate(calc(var(--rotate) * 0));
+  transition-delay: 0.075s;
+}
+
+.btn-slanted-label:nth-of-type(2){ 
+  transform: translate(calc(var(--move) * -0.2), calc(var(--move) * 2.5)) rotate(calc(var(--rotate) * -2));
+  transition-delay: 0s;
+}
+
+/* Hover styles */
+@media (hover: hover) {
+  .btn-slanted:hover .btn-slanted-label:nth-of-type(1){
+    transform: translate(calc(var(--move) * 0.2), calc(var(--move) * -2.5)) rotate(calc(var(--rotate) * 2));
+    transition-delay: 0s;
+  }
+  .btn-slanted:hover .btn-slanted-label:nth-of-type(2){
+    transform: translate(calc(var(--move) * 0), calc(var(--move) * 0)) rotate(calc(var(--rotate) * 0));
+    transition-delay: 0.075s;
+  }
+  .btn-slanted:hover .btn-slanted-bg{
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+}
+
+/* Focus styles */
+.btn-slanted:focus-visible .btn-slanted-label:nth-of-type(1){
+  transform: translate(calc(var(--move) * 0.2), calc(var(--move) * -2.5)) rotate(calc(var(--rotate) * 2));
+  transition-delay: 0s;
+}
+.btn-slanted:focus-visible .btn-slanted-label:nth-of-type(2){
+  transform: translate(calc(var(--move) * 0), calc(var(--move) * 0)) rotate(calc(var(--rotate) * 0));
+  transition-delay: 0.075s;
+}
+.btn-slanted:focus-visible .btn-slanted-bg{
+  transform: translate(0%, 0%) rotate(0deg);
+}
