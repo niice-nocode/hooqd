@@ -2,7 +2,7 @@
 let lenis;
 if (Webflow.env("editor") === undefined) {
   lenis = new Lenis({
-    lerp: 0.05,
+    lerp: 0,
     wheelMultiplier: 1,
     gestureOrientation: "vertical",
     normalizeWheel: false,
