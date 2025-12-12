@@ -1,0 +1,75 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("email-form");
+    const input = document.getElementById("Message");
+    const submitButton = document.querySelector(".submit-button-2");
+    const phoneNumber = "31645623523";
+
+    function sendMessage() {
+        let message = input.value.trim();
+        if (message) {
+            let whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, "_blank");
+
+            // Push event to dataLayer
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: "whatsapp_message_send" });
+        }
+    }
+
+    // Handle click event
+    submitButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        sendMessage();
+    });
+
+    input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const whatsappContainer = document.querySelector(".whatsapp-container");
+    const whatsappBlock = document.querySelector(".whatsapp-block");
+    const trackWhatsapp = document.getElementById("track-whatsapp");
+    const closeChat = document.getElementById("close-chat");
+    const chatButtons = document.querySelector(".chat-buttons");
+    const chatMessage = document.querySelector(".chat-message");
+
+    // Klik op whatsappContainer om whatsapp-block te togglen
+    whatsappContainer.addEventListener("click", function () {
+        if (whatsappBlock.classList.contains("show")) {
+            whatsappBlock.classList.remove("show");
+            setTimeout(() => (whatsappBlock.style.display = "none"), 500); // Wacht op fade-out
+        } else {
+            whatsappBlock.style.display = "flex";
+            setTimeout(() => whatsappBlock.classList.add("show"), 10);
+        }
+    });
+
+    // Klik op trackWhatsapp om chat-buttons te verbergen en chat-message te tonen
+    trackWhatsapp.addEventListener("click", function () {
+        chatButtons.classList.add("hide");
+        setTimeout(() => {
+            chatButtons.style.display = "none";
+            chatMessage.style.display = "flex";
+            setTimeout(() => chatMessage.classList.add("show"), 10);
+        }, 500); // Wacht op fade-out van chat-buttons
+    });
+
+    // Klik op closeChat om whatsapp-block te verbergen en chat-buttons te herstellen
+    closeChat.addEventListener("click", function () {
+        whatsappBlock.classList.remove("show");
+        chatMessage.classList.remove("show");
+        setTimeout(() => {
+            whatsappBlock.style.display = "none";
+            chatMessage.style.display = "none";
+            chatButtons.style.display = "flex";
+            setTimeout(() => chatButtons.classList.remove("hide"), 10);
+        }, 500);
+    });
+});
+</script>
