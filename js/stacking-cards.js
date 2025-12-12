@@ -14,7 +14,7 @@ function initStackingCardsParallax(){
     if (!previousCard) return;
     
     // Find any element inside the previous card
-    const previousCardImage = previousCard.querySelector("[data-stacking-cards-img]")
+    const previousCardImage = previousCard.querySelector("[data-stacking-cards-img]");
     
     let tl = gsap.timeline({
       defaults:{
@@ -28,7 +28,7 @@ function initStackingCardsParallax(){
         scrub: true,
         invalidateOnRefresh: true
       }
-    })
+    });
     
     tl.fromTo(previousCard,{ yPercent: 0 },{ yPercent: 50})
       .fromTo(previousCardImage,{ rotate: 0, yPercent:0 },{ rotate: -5, yPercent: -25 }, "<")
