@@ -30,8 +30,6 @@ function initStackingCardsParallax(){
       }
     })
    
-}
-
 // Initialize Stacking Cards Parallax
 document.addEventListener("DOMContentLoaded", () =>{
   initStackingCardsParallax();
