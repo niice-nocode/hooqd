@@ -29,7 +29,12 @@ function initStackingCardsParallax(){
         invalidateOnRefresh: true
       }
     })
-   
+    
+    tl.fromTo(previousCard,{ yPercent: 0 },{ yPercent: 50})
+      .fromTo(previousCardImage,{ rotate: 0, yPercent:0 },{ rotate: -5, yPercent: -25 }, "<")
+  });
+}
+
 // Initialize Stacking Cards Parallax
 document.addEventListener("DOMContentLoaded", () =>{
   initStackingCardsParallax();
