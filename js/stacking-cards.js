@@ -30,7 +30,7 @@ function initStackingCardsParallax(){
       }
     });
     
-    tl.fromTo(previousCard,{ yPercent: 0 },{ yPercent: 50})
+    tl.fromTo(previousCard,{ yPercent: 0 },{ yPercent: 0})
       .fromTo(previousCardImage,{ rotate: 0, yPercent:0 },{ rotate: 0, yPercent: 0 }, "<")
   });
 }
